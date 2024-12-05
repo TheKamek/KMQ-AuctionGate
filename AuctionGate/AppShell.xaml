@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AuctionGate.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AuctionGate"
+    xmlns:views="clr-namespace:AuctionGate.Resources.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="AuctionGate">
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    <ShellContent
+        Title="Market"
+        ContentTemplate="{DataTemplate views:MarketPage}"
+        Route="Market" />
+    <ShellContent
+        Title="CreateAuction"
+        ContentTemplate="{DataTemplate views:CreateAuctionPage}"
+        Route="CreateAuction" />
+    <ShellContent
+        Title="AuctionSuccess"
+        ContentTemplate="{DataTemplate views:AuctionSuccessPage}"
+        Route="AuctionSuccess" />
+
+</Shell>

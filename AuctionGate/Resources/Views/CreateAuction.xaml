@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AuctionGate.Resources.Views.CreateAuctionPage"
+             x:Name="CreateAuction"
+             Title="CreateAuctionPage">
+
+    <Grid RowDefinitions="Auto,*">
+        <!-- Header -->
+        <Grid Grid.Row="0" 
+              BackgroundColor="{StaticResource Primary}"
+              Padding="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" 
+                    Text="☰"
+                    BackgroundColor="Transparent"
+                    TextColor="{StaticResource White}"
+                    Clicked="OpenMenu_Clicked"
+                    Margin="0,0,16,0"/>
+
+            <Label Grid.Column="1" 
+                   Text="AuctionGate"
+                   Style="{StaticResource SubHeadline}"
+                   TextColor="{StaticResource White}"
+                   VerticalOptions="Center"/>
+
+            <HorizontalStackLayout Grid.Column="2" Spacing="16">
+                <Button Text="🔍" 
+                        BackgroundColor="Transparent"
+                        TextColor="{StaticResource White}"/>
+                <Button Text="🔔" 
+                        BackgroundColor="Transparent"
+                        TextColor="{StaticResource White}"/>
+            </HorizontalStackLayout>
+        </Grid>
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="16" Spacing="20">
+                <Label Text="Create New Auction" 
+                       Style="{StaticResource SubHeadline}"/>
+
+                <Frame Padding="20" HasShadow="True">
+                    <VerticalStackLayout Spacing="20">
+                        <!-- Basic Information -->
+                        <VerticalStackLayout Spacing="15">
+                            <Label Text="Basic Information" 
+                                   TextColor="{StaticResource Primary}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"/>
+
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Item Title"/>
+                                <Entry Placeholder="Enter a descriptive title"
+                                       Text="{Binding Title}"/>
+                                <Label Text="Make it clear and compelling" 
+                                       TextColor="{StaticResource Gray500}"
+                                       FontSize="12"/>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Description"/>
+                                <Editor Placeholder="Describe your item in detail"
+                                        Text="{Binding Description}"
+                                        HeightRequest="100"/>
+                                <Label Text="Include condition, features, and any important details" 
+                                       TextColor="{StaticResource Gray500}"
+                                       FontSize="12"/>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Category"/>
+                                <Picker ItemsSource="{Binding Categories}"
+                                        SelectedItem="{Binding SelectedCategory}"/>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+
+                        <!-- Pricing & Duration -->
+                        <VerticalStackLayout Spacing="15">
+                            <Label Text="Pricing &amp; Duration" 
+                                   TextColor="{StaticResource Primary}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"/>
+
+                            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="15">
+                                <VerticalStackLayout Grid.Column="0" Grid.Row="0" Spacing="5">
+                                    <Label Text="Starting Price ($)"/>
+                                    <Entry Keyboard="Numeric" Text="{Binding StartPrice}"/>
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout Grid.Column="1" Grid.Row="0" Spacing="5">
+                                    <Label Text="Reserve Price ($)"/>
+                                    <Entry Keyboard="Numeric" Text="{Binding ReservePrice}"/>
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout Grid.Column="0" Grid.Row="1" Spacing="5">
+                                    <Label Text="Duration"/>
+                                    <Picker ItemsSource="{Binding Durations}"
+                                            SelectedItem="{Binding SelectedDuration}"/>
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout Grid.Column="1" Grid.Row="1" Spacing="5">
+                                    <Label Text="Minimum Bid Increment ($)"/>
+                                    <Entry Keyboard="Numeric" Text="{Binding MinimumBidIncrement}"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </VerticalStackLayout>
+
+                        <!-- Images -->
+                        <VerticalStackLayout Spacing="15">
+                            <Label Text="Images" 
+                                   TextColor="{StaticResource Primary}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"/>
+
+                            <Button Text="Upload Images"
+                                    BackgroundColor="{StaticResource Primary}"
+                                    TextColor="{StaticResource White}"
+                                    Clicked="OnUploadImages"/>
+
+                            <Label Text="Upload up to 5 images (PNG, JPG)" 
+                                   TextColor="{StaticResource Gray500}"
+                                   FontSize="12"/>
+
+                            <CollectionView ItemsSource="{Binding UploadedImages}"
+                                          HeightRequest="100">
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding}"
+                                               Aspect="AspectFill"
+                                               WidthRequest="100"/>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </VerticalStackLayout>
+
+                        <!-- Additional Features -->
+                        <VerticalStackLayout Spacing="15">
+                            <Label Text="Additional Features" 
+                                   TextColor="{StaticResource Primary}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"/>
+
+                            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="15">
+                                <CheckBox Grid.Column="0" Grid.Row="0" 
+                                         IsChecked="{Binding BuyNowOption}"/>
+                                <Label Grid.Column="0" Grid.Row="0" 
+                                       Text="Buy Now Option"
+                                       VerticalOptions="Center"
+                                       Margin="35,0,0,0"/>
+
+                                <CheckBox Grid.Column="1" Grid.Row="0" 
+                                         IsChecked="{Binding FeaturedListing}"/>
+                                <Label Grid.Column="1" Grid.Row="0" 
+                                       Text="Featured Listing"
+                                       VerticalOptions="Center"
+                                       Margin="35,0,0,0"/>
+
+                                <CheckBox Grid.Column="0" Grid.Row="1" 
+                                         IsChecked="{Binding PrivateAuction}"/>
+                                <Label Grid.Column="0" Grid.Row="1" 
+                                       Text="Private Auction"
+                                       VerticalOptions="Center"
+                                       Margin="35,0,0,0"/>
+
+                                <CheckBox Grid.Column="1" Grid.Row="1" 
+                                         IsChecked="{Binding InternationalShipping}"/>
+                                <Label Grid.Column="1" Grid.Row="1" 
+                                       Text="International Shipping"
+                                       VerticalOptions="Center"
+                                       Margin="35,0,0,0"/>
+                            </Grid>
+                        </VerticalStackLayout>
+
+                        <!-- Buttons -->
+                        <HorizontalStackLayout Spacing="10">
+                            <Button Text="Create Auction"
+                                    BackgroundColor="{StaticResource Primary}"
+                                    TextColor="{StaticResource White}"
+                                    WidthRequest="150"
+                                    Clicked="OnCreateAuction"/>
+
+                            <Button Text="Save Draft"
+                                    BackgroundColor="Transparent"
+                                    TextColor="{StaticResource Primary}"
+                                    BorderColor="{StaticResource Primary}"
+                                    BorderWidth="1"
+                                    WidthRequest="150"
+                                    Clicked="OnSaveDraft"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

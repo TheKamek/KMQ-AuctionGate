@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AuctionGate.Resources.Views.AuctionSuccessPage"
+             Title="AuctionGate - Success"
+             BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}">
+
+    <Grid RowDefinitions="Auto,*">
+        <!-- Navbar -->
+        <Grid Grid.Row="0"
+              Background="{StaticResource PrimaryGradient}"
+              Padding="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <HorizontalStackLayout Grid.Column="0" Spacing="16">
+                <ImageButton Source="menu.png"
+                            HeightRequest="24"
+                            WidthRequest="24"
+                            BackgroundColor="Transparent"
+                            Clicked="OnMenuClicked"/>
+                <Label Text="AuctionGate"
+                       TextColor="{StaticResource White}"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Grid.Column="2" Spacing="16">
+                <ImageButton Source="search.png"
+                            HeightRequest="24"
+                            WidthRequest="24"
+                            BackgroundColor="Transparent"/>
+                <ImageButton Source="notification.png"
+                            HeightRequest="24"
+                            WidthRequest="24"
+                            BackgroundColor="Transparent"/>
+            </HorizontalStackLayout>
+        </Grid>
+
+        <!-- Success Content -->
+        <ScrollView Grid.Row="1">
+            <Grid Padding="16" VerticalOptions="Center">
+                <Frame MaximumWidthRequest="600"
+                       Padding="24"
+                       Margin="16"
+                       CornerRadius="16"
+                       BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray800}}"
+                       HasShadow="True"
+                       BorderColor="Transparent">
+                    <VerticalStackLayout Spacing="24">
+                        <!-- Success Icon -->
+                        <Frame HeightRequest="80"
+                               WidthRequest="80"
+                               CornerRadius="40"
+                               Padding="0"
+                               HorizontalOptions="Center"
+                               IsClippedToBounds="True"
+                               BackgroundColor="#22c55e"
+                               BorderColor="Transparent"
+                               HasShadow="False">
+                            <Label Text="✓"
+                                   TextColor="{StaticResource White}"
+                                   FontSize="32"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                        </Frame>
+
+                        <!-- Success Message -->
+                        <VerticalStackLayout Spacing="12">
+                            <Label Text="Auction Created Successfully!"
+                                   TextColor="#22c55e"
+                                   FontSize="24"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Text="Your auction has been published and is now live. Potential buyers can start placing their bids."
+                                   TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray300}}"
+                                   FontSize="16"
+                                   HorizontalTextAlignment="Center"
+                                   LineBreakMode="WordWrap"/>
+                        </VerticalStackLayout>
+
+                        <!-- Auction Details -->
+                        <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                               Padding="16"
+                               CornerRadius="8"
+                               HasShadow="False"
+                               BorderColor="Transparent">
+                            <VerticalStackLayout Spacing="16">
+                                <Grid ColumnDefinitions="Auto,*">
+                                    <Label Text="Auction ID" 
+                                           TextColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray400}}"/>
+                                    <Label Text="#A12345"
+                                           TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                                           FontAttributes="Bold"
+                                           Grid.Column="1"
+                                           HorizontalOptions="End"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*">
+                                    <Label Text="Starting Price"
+                                           TextColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray400}}"/>
+                                    <Label Text="$299.99"
+                                           TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                                           FontAttributes="Bold"
+                                           Grid.Column="1"
+                                           HorizontalOptions="End"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*">
+                                    <Label Text="Duration"
+                                           TextColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray400}}"/>
+                                    <Label Text="7 days"
+                                           TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                                           FontAttributes="Bold"
+                                           Grid.Column="1"
+                                           HorizontalOptions="End"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*">
+                                    <Label Text="End Date"
+                                           TextColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray400}}"/>
+                                    <Label Text="Nov 28, 2024 - 15:30 EST"
+                                           TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                                           FontAttributes="Bold"
+                                           Grid.Column="1"
+                                           HorizontalOptions="End"/>
+                                </Grid>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <!-- Buttons -->
+                        <HorizontalStackLayout Spacing="16" HorizontalOptions="Center">
+                            <Button Text="View Auction"
+                                    ImageSource="eye.png"
+                                    Style="{StaticResource BidButtonStyle}"
+                                    Padding="24,12"
+                                    WidthRequest="160"
+                                    Clicked="OnViewAuctionClicked"/>
+
+                            <Button Text="Create Another"
+                                    ImageSource="plus.png"
+                                    BackgroundColor="Transparent"
+                                    TextColor="{StaticResource Primary}"
+                                    BorderColor="{StaticResource Primary}"
+                                    BorderWidth="1"
+                                    Padding="24,12"
+                                    WidthRequest="160"
+                                    Clicked="OnCreateAnotherClicked"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+        </ScrollView>
+
+        <!-- Side Navigation -->
+        <Grid x:Name="SideNav"
+              Grid.RowSpan="2"
+              WidthRequest="250"
+              BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}"
+              TranslationX="-250"
+              HorizontalOptions="Start"
+              InputTransparent="True">
+            <VerticalStackLayout Spacing="0" Margin="0,60,0,0">
+                <Button Text="Market"
+                        ImageSource="home.png"
+                        Style="{StaticResource SideNavButtonStyle}"/>
+                <Button Text="Profile"
+                        ImageSource="profile.png"
+                        Style="{StaticResource SideNavButtonStyle}"/>
+                <Button Text="My Bids"
+                        ImageSource="target.png"
+                        Style="{StaticResource SideNavButtonStyle}"/>
+                <Button Text="Create Auction"
+                        ImageSource="plus.png"
+                        Style="{StaticResource SideNavButtonStyle}"
+                        ClassId="active"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

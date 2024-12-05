@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AuctionGate.Resources.Views.MarketPage"
+             x:Name="Market"
+             Title="MarketPage">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+        <Grid Grid.Row="0" 
+              BackgroundColor="{StaticResource Primary}"
+              Padding="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" 
+                    Text="☰"
+                    BackgroundColor="Transparent"
+                    TextColor="{StaticResource White}"
+                    Clicked="OpenMenu_Clicked"
+                    Margin="0,0,16,0"/>
+
+            <Label Grid.Column="1" 
+                   Text="AuctionGate"
+                   Style="{StaticResource SubHeadline}"
+                   TextColor="{StaticResource White}"
+                   VerticalOptions="Center"/>
+
+            <HorizontalStackLayout Grid.Column="2" Spacing="16">
+                <Button Text="🔍" 
+                        BackgroundColor="Transparent"
+                        TextColor="{StaticResource White}"/>
+                <Button Text="🔔" 
+                        BackgroundColor="Transparent"
+                        TextColor="{StaticResource White}"/>
+            </HorizontalStackLayout>
+        </Grid>
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="16">
+                <Label Text="Featured Auctions" 
+                       Style="{StaticResource SubHeadline}"
+                       Margin="0,0,0,16"/>
+
+                <CollectionView ItemsSource="{Binding Auctions}"
+                              ItemsLayout="VerticalGrid, 2">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="8"
+                                   Padding="0">
+                                <Grid RowDefinitions="350,Auto">
+                                    <Image Grid.Row="0"
+                                           Aspect="AspectFill"
+                                           Source="{Binding ImageSource}"/>
+
+                                    <VerticalStackLayout Grid.Row="1" 
+                                                       Padding="12">
+                                        <Label Text="{Binding Name}"
+                                               TextColor="{StaticResource Black}"
+                                               FontSize="16"
+                                               FontAttributes="Bold"/>
+
+                                        <Label Text="{Binding Description}"
+                                               TextColor="{StaticResource Gray500}"
+                                               FontSize="12"
+                                               MaxLines="2"
+                                               LineBreakMode="TailTruncation"/>
+
+                                        <Grid ColumnDefinitions="*,Auto" 
+                                              Margin="0,8,0,0">
+                                            <Label Grid.Column="0"
+                                                   Text="{Binding CurrentBid, StringFormat='${0}'}"
+                                                   TextColor="{StaticResource Magenta}"
+                                                   FontAttributes="Bold"/>
+
+                                            <Frame Grid.Column="1"
+                                                   BackgroundColor="{StaticResource Primary}"
+                                                   Padding="8,4"
+                                                   CornerRadius="12">
+                                                <Label Text="{Binding TimeLeft}"
+                                                       TextColor="{StaticResource White}"
+                                                       FontSize="12"/>
+                                            </Frame>
+                                        </Grid>
+
+                                        <Button Text="Place Bid"
+                                                BackgroundColor="{StaticResource Primary}"
+                                                TextColor="{StaticResource White}"
+                                                CornerRadius="4"
+                                                Margin="0,8,0,0"/>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Create Auction Button -->
+        <Button Grid.Row="2"
+                Text="+ Create Auction"
+                BackgroundColor="{StaticResource Primary}"
+                TextColor="{StaticResource White}"
+                CornerRadius="25"
+                Clicked="CreateItemPage"
+                Margin="16"/>
+    </Grid>
+
+</ContentPage>
