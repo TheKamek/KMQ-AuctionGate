@@ -7,9 +7,12 @@ public partial class AuctionSuccessPage : ContentPage
 {
     private bool isSideNavOpen = false;
 
-    public AuctionSuccessPage()
+    public AuctionSuccessPage(CreateAuctionPage.AuctionCreationData auctionCreationData)
     {
         InitializeComponent();
+        moneyLabel.Text = (auctionCreationData.StartPrice.ToString() + "$");
+        durationLabel.Text = (auctionCreationData.Duration.ToString() + " Days");
+        titleLabel.Text = (auctionCreationData.Title);
     }
 
     private async void OnMenuClicked(object sender, EventArgs e)
@@ -27,7 +30,6 @@ public partial class AuctionSuccessPage : ContentPage
 
     private async void OnCreateAnotherClicked(object sender, EventArgs e)
     {
-        // Navigate to create auction page
         await Navigation.PushAsync(new CreateAuctionPage());
     }
 }

@@ -57,6 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\arrow_down.png" />
 	  <None Remove="Resources\Images\auctiongate_logo.png" />
 	  <None Remove="Resources\Images\Item1.jpg" />
 	  <None Remove="Resources\Images\Item2.png" />
@@ -71,6 +72,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Resources\Views\ItemDetails.xaml.cs">
+	    <DependentUpon>ItemDetails.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Views\Market.xaml.cs">
 	    <DependentUpon>Market.xaml</DependentUpon>
 	  </Compile>
@@ -80,9 +84,15 @@
 	  <Compile Update="Resources\Views\AuctionSuccess.xaml.cs">
 	    <DependentUpon>AuctionSuccess.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\Views\FAQ.xaml.cs">
+	    <DependentUpon>FAQ.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Resources\Views\ItemDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Views\Market.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -90,6 +100,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Views\AuctionSuccess.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Views\FAQ.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

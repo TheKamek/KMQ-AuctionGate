@@ -6,7 +6,6 @@
              BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}">
 
     <Grid RowDefinitions="Auto,*">
-        <!-- Navbar -->
         <Grid Grid.Row="0"
               Background="{StaticResource PrimaryGradient}"
               Padding="16">
@@ -17,11 +16,6 @@
             </Grid.ColumnDefinitions>
 
             <HorizontalStackLayout Grid.Column="0" Spacing="16">
-                <ImageButton Source="menu.png"
-                            HeightRequest="24"
-                            WidthRequest="24"
-                            BackgroundColor="Transparent"
-                            Clicked="OnMenuClicked"/>
                 <Label Text="AuctionGate"
                        TextColor="{StaticResource White}"
                        FontSize="20"
@@ -30,18 +24,14 @@
             </HorizontalStackLayout>
 
             <HorizontalStackLayout Grid.Column="2" Spacing="16">
-                <ImageButton Source="search.png"
-                            HeightRequest="24"
-                            WidthRequest="24"
-                            BackgroundColor="Transparent"/>
-                <ImageButton Source="notification.png"
-                            HeightRequest="24"
-                            WidthRequest="24"
-                            BackgroundColor="Transparent"/>
+                <HorizontalStackLayout Grid.Column="2" Spacing="16">
+                    <Image Source="auctiongate_logo.png"
+           HeightRequest="40"
+           WidthRequest="40"
+           Aspect="AspectFit"/>
+                </HorizontalStackLayout>
             </HorizontalStackLayout>
         </Grid>
-
-        <!-- Success Content -->
         <ScrollView Grid.Row="1">
             <Grid Padding="16" VerticalOptions="Center">
                 <Frame MaximumWidthRequest="600"
@@ -52,7 +42,6 @@
                        HasShadow="True"
                        BorderColor="Transparent">
                     <VerticalStackLayout Spacing="24">
-                        <!-- Success Icon -->
                         <Frame HeightRequest="80"
                                WidthRequest="80"
                                CornerRadius="40"
@@ -69,7 +58,6 @@
                                    VerticalOptions="Center"/>
                         </Frame>
 
-                        <!-- Success Message -->
                         <VerticalStackLayout Spacing="12">
                             <Label Text="Auction Created Successfully!"
                                    TextColor="#22c55e"
@@ -83,7 +71,6 @@
                                    LineBreakMode="WordWrap"/>
                         </VerticalStackLayout>
 
-                        <!-- Auction Details -->
                         <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
                                Padding="16"
                                CornerRadius="8"
@@ -103,17 +90,20 @@
                                 <Grid ColumnDefinitions="Auto,*">
                                     <Label Text="Starting Price"
                                            TextColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray400}}"/>
-                                    <Label Text="$299.99"
+                                    <Label                                           
+                                        x:Name="moneyLabel"
                                            TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
                                            FontAttributes="Bold"
                                            Grid.Column="1"
+
                                            HorizontalOptions="End"/>
                                 </Grid>
 
                                 <Grid ColumnDefinitions="Auto,*">
                                     <Label Text="Duration"
                                            TextColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray400}}"/>
-                                    <Label Text="7 days"
+                                    <Label 
+                                        x:Name="durationLabel"
                                            TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
                                            FontAttributes="Bold"
                                            Grid.Column="1"
@@ -121,9 +111,9 @@
                                 </Grid>
 
                                 <Grid ColumnDefinitions="Auto,*">
-                                    <Label Text="End Date"
+                                    <Label Text="Title"
                                            TextColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray400}}"/>
-                                    <Label Text="Nov 28, 2024 - 15:30 EST"
+                                    <Label x:Name="titleLabel"
                                            TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
                                            FontAttributes="Bold"
                                            Grid.Column="1"
@@ -132,7 +122,6 @@
                             </VerticalStackLayout>
                         </Frame>
 
-                        <!-- Buttons -->
                         <HorizontalStackLayout Spacing="16" HorizontalOptions="Center">
                             <Button Text="View Auction"
                                     ImageSource="eye.png"
@@ -156,7 +145,6 @@
             </Grid>
         </ScrollView>
 
-        <!-- Side Navigation -->
         <Grid x:Name="SideNav"
               Grid.RowSpan="2"
               WidthRequest="250"

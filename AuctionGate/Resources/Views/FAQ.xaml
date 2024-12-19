@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AuctionGate.Resources.Views.FAQ">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+            <HorizontalStackLayout Grid.Column="2" Spacing="16">
+                <Image Source="auctiongate_logo.png"
+           HeightRequest="40"
+           WidthRequest="40"
+           Aspect="AspectFit"/>
+            </HorizontalStackLayout>
+            <Label 
+                Text="Frequently Asked Questions"
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Margin="0,0,0,20" />
+
+            <Border StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout x:Name="faqItem1" Padding="15">
+                    <Grid>
+                        <Label 
+                            Text="How do I place a bid?"
+                            FontSize="18"
+                            FontAttributes="Bold"/>
+                        <ImageButton 
+                            x:Name="expandButton1"
+                            Source="arrow_down.png"
+                            HeightRequest="20"
+                            WidthRequest="20"
+                            HorizontalOptions="End"
+                            Clicked="OnExpandClicked"/>
+                    </Grid>
+                    <Label 
+                        x:Name="answer1"
+                        Text="To place a bid, simply click on the item you're interested in, enter your bid amount, and click 'Submit Bid'. Make sure your bid meets the minimum increment requirement. You'll receive a confirmation once your bid is successful."
+                        IsVisible="false"
+                        Margin="0,10,0,0"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout x:Name="faqItem2" Padding="15">
+                    <Grid>
+                        <Label 
+                            Text="What payment methods are accepted?"
+                            FontSize="18"
+                            FontAttributes="Bold"/>
+                        <ImageButton 
+                            x:Name="expandButton2"
+                            Source="arrow_down.png"
+                            HeightRequest="20"
+                            WidthRequest="20"
+                            HorizontalOptions="End"
+                            Clicked="OnExpandClicked"/>
+                    </Grid>
+                    <Label 
+                        x:Name="answer2"
+                        Text="We accept major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers. All payments are processed securely through our encrypted payment system."
+                        IsVisible="false"
+                        Margin="0,10,0,0"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout x:Name="faqItem3" Padding="15">
+                    <Grid>
+                        <Label 
+                            Text="What happens if I win an auction?"
+                            FontSize="18"
+                            FontAttributes="Bold"/>
+                        <ImageButton 
+                            x:Name="expandButton3"
+                            Source="arrow_down.png"
+                            HeightRequest="20"
+                            WidthRequest="20"
+                            HorizontalOptions="End"
+                            Clicked="OnExpandClicked"/>
+                    </Grid>
+                    <Label 
+                        x:Name="answer3"
+                        Text="When you win an auction, you'll receive an email notification with payment instructions. You'll need to complete the payment within 48 hours. Once payment is confirmed, shipping details will be provided."
+                        IsVisible="false"
+                        Margin="0,10,0,0"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Frame BorderColor="Gray" CornerRadius="10" Padding="15" Margin="0,20,0,0">
+                <VerticalStackLayout Spacing="10">
+                    <Label 
+                        Text="Still have questions?"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"/>
+                    <Label 
+                        Text="Contact our support team"
+                        HorizontalOptions="Center"/>
+                    <Button 
+                        Text="Contact Support"
+                        Clicked="OnContactSupportClicked"
+                        HorizontalOptions="Center"
+                        Margin="0,10,0,0"/>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

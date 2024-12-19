@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AuctionGate.Resources.Views.MarketPage"
-             x:Name="Market"
-             Title="MarketPage">
+             x:Name="Market">
 
     <Grid RowDefinitions="Auto,*,Auto">
         <Grid Grid.Row="0" 
@@ -15,12 +14,6 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" 
-                    Text="☰"
-                    BackgroundColor="Transparent"
-                    TextColor="{StaticResource White}"
-                    Clicked="OpenMenu_Clicked"
-                    Margin="0,0,16,0"/>
 
             <Label Grid.Column="1" 
                    Text="AuctionGate"
@@ -29,16 +22,13 @@
                    VerticalOptions="Center"/>
 
             <HorizontalStackLayout Grid.Column="2" Spacing="16">
-                <Button Text="🔍" 
-                        BackgroundColor="Transparent"
-                        TextColor="{StaticResource White}"/>
-                <Button Text="🔔" 
-                        BackgroundColor="Transparent"
-                        TextColor="{StaticResource White}"/>
+                <Image Source="auctiongate_logo.png"
+           HeightRequest="40"
+           WidthRequest="40"
+           Aspect="AspectFit"/>
             </HorizontalStackLayout>
         </Grid>
 
-        <!-- Main Content -->
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Padding="16">
                 <Label Text="Featured Auctions" 
@@ -100,7 +90,6 @@
             </VerticalStackLayout>
         </ScrollView>
 
-        <!-- Create Auction Button -->
         <Button Grid.Row="2"
                 Text="+ Create Auction"
                 BackgroundColor="{StaticResource Primary}"

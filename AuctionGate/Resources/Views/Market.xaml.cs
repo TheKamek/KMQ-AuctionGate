@@ -20,7 +20,7 @@ public partial class MarketPage : ContentPage
         {
             new AuctionItem
             {
-                Name = "Vintage Watch",
+                Name = "Swaggy Rolex",
                 CurrentBid = 299,
                 TimeLeft = "2h 15m",
                 Description = "Elegant vintage timepiece in excellent condition",
@@ -44,14 +44,9 @@ public partial class MarketPage : ContentPage
             },
         };
     }
-
-    private void OpenMenu_Clicked(object sender, EventArgs e)
-    {
-        // Menu functionality to be implemented
-    }
     private async void CreateItemPage(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("CreateAuction");
+        await Shell.Current.GoToAsync("CreateAuctionPage");
     }
 }
 
