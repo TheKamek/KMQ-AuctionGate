@@ -25,10 +25,10 @@
     </Shell.FlyoutHeader>
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" 
-        Icon="home.png"/>
+    Title="Home"
+    ContentTemplate="{DataTemplate views:ChillPage}"
+    Route="ChillPage" 
+    Icon="home.png"/>
 
     <ShellContent
         Title="Market"

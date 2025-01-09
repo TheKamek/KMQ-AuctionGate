@@ -123,12 +123,6 @@
                         </Frame>
 
                         <HorizontalStackLayout Spacing="16" HorizontalOptions="Center">
-                            <Button Text="View Auction"
-                                    ImageSource="eye.png"
-                                    Style="{StaticResource BidButtonStyle}"
-                                    Padding="24,12"
-                                    WidthRequest="160"
-                                    Clicked="OnViewAuctionClicked"/>
 
                             <Button Text="Create Another"
                                     ImageSource="plus.png"

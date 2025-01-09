@@ -57,6 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\Poppins-Regular.ttf" />
 	  <None Remove="Resources\Images\arrow_down.png" />
 	  <None Remove="Resources\Images\auctiongate_logo.png" />
 	  <None Remove="Resources\Images\Item1.jpg" />
@@ -87,6 +88,9 @@
 	  <Compile Update="Resources\Views\FAQ.xaml.cs">
 	    <DependentUpon>FAQ.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\Views\ChillPage.xaml.cs">
+	    <DependentUpon>ChillPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -103,6 +107,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Views\FAQ.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Views\ChillPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

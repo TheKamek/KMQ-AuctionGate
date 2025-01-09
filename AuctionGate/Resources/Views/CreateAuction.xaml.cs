@@ -329,7 +329,7 @@ namespace AuctionGate.Resources.Views
 
         private async void OnGoBack(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("MarketPage");
+            await Shell.Current.GoToAsync("///MarketPage");
         }
         #endregion
 

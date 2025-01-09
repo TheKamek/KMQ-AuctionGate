@@ -2,7 +2,6 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
         public MainPage()
         {
@@ -11,7 +10,7 @@
 
         private async void OnStartClick(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("MarketPage");
+            await Shell.Current.GoToAsync("///MarketPage");
         }
 
     }

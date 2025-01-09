@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AuctionGate.Resources.Views.ChillPage"
+             BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray950}}">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,20"
+            Spacing="25">
+            <Image
+                Source="auctiongate_logo.png"
+                HeightRequest="285"
+                Aspect="AspectFit"
+                SemanticProperties.Description="The Plattform shaped for you!" />
+
+            <Label
+                Text="Welcome to AuctionGate!"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1"
+                HorizontalOptions="Center"
+                FontSize="32"
+                FontAttributes="Bold" />
+
+            <Label
+                Text="Click to open the Gate to your future!"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level2"
+                HorizontalOptions="Center"
+                FontSize="20"
+                Margin="0,0,0,20" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Login" 
+                Clicked="OnStartClick"
+                HorizontalOptions="Fill"
+                HeightRequest="50"
+                FontSize="18"
+                FontAttributes="Bold"
+                Margin="40,0" />
+
+            <BoxView 
+                HeightRequest="1" 
+                Color="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray600}}"
+                Margin="0,20" />
+
+            <VerticalStackLayout Spacing="10" Margin="0,10">
+                <Label 
+                    Text="Contact Us"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center" />
+
+                <Label 
+                    Text="support@auctiongate.com"
+                    FontSize="14"
+                    TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Primary}}"
+                    HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding EmailTapCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label 
+                    Text="Version 1.0.0"
+                    FontSize="12"
+                    TextColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray400}}"
+                    HorizontalOptions="Center"
+                    Margin="0,10,0,0" />
+
+                <Label 
+                    Text="© 2024 AuctionGate. All rights reserved."
+                    FontSize="12"
+                    TextColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray400}}"
+                    HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

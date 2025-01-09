@@ -23,10 +23,6 @@ public partial class AuctionSuccessPage : ContentPage
         isSideNavOpen = !isSideNavOpen;
     }
 
-    private async void OnViewAuctionClicked(object sender, EventArgs e)
-    {
-        // Navigate to auction details page
-    }
 
     private async void OnCreateAnotherClicked(object sender, EventArgs e)
     {

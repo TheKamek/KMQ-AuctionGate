@@ -14,7 +14,6 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-
             <Label Grid.Column="1" 
                    Text="AuctionGate"
                    Style="{StaticResource SubHeadline}"
@@ -23,9 +22,9 @@
 
             <HorizontalStackLayout Grid.Column="2" Spacing="16">
                 <Image Source="auctiongate_logo.png"
-           HeightRequest="40"
-           WidthRequest="40"
-           Aspect="AspectFit"/>
+                       HeightRequest="40"
+                       WidthRequest="40"
+                       Aspect="AspectFit"/>
             </HorizontalStackLayout>
         </Grid>
 
@@ -67,10 +66,11 @@
                                                    FontAttributes="Bold"/>
 
                                             <Frame Grid.Column="1"
-                                                   BackgroundColor="{StaticResource Primary}"
+                                                   BackgroundColor="{StaticResource Cyanide}"
                                                    Padding="8,4"
                                                    CornerRadius="12">
                                                 <Label Text="{Binding TimeLeft}"
+
                                                        TextColor="{StaticResource White}"
                                                        FontSize="12"/>
                                             </Frame>
@@ -80,7 +80,9 @@
                                                 BackgroundColor="{StaticResource Primary}"
                                                 TextColor="{StaticResource White}"
                                                 CornerRadius="4"
-                                                Margin="0,8,0,0"/>
+                                                Margin="0,8,0,0"
+                                                Command="{Binding Source={x:Reference Market}, Path=PlaceBidCommand}"
+                                                CommandParameter="{Binding .}"/>
                                     </VerticalStackLayout>
                                 </Grid>
                             </Frame>
@@ -98,5 +100,4 @@
                 Clicked="CreateItemPage"
                 Margin="16"/>
     </Grid>
-
 </ContentPage>
